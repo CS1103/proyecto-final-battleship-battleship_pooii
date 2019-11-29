@@ -1,9 +1,10 @@
-#include <iostream>
 #include <filesystem>
 #include <fstream>
+#include <iostream>
 #include <map>
 #include <optional>
 #include <regex>
+#include <stdexcept>
 #include <string>
 #include <utility>
 
@@ -28,80 +29,32 @@ std::map<std::string,std::string> read(std::ifstream& file)
     return data;
 }
 
-
-void parse(std::map<std::string,std::string> data)
+/**
+ * Does the handshake in stage of the program.
+ */
+void handshake_write(std::string name)
 {
-    bool accepted = false;
-    std::string TOKEN;
-    for (auto& it : data)
+    std::string outfile_name = "Player.in";
+    std::ofstream outfile(outfile_name);
+    if (!outfile)
     {
-        if (it.first == "SCOPE")
-        {
-            //poner tamños;
-        } 
-        else if (it.first == "STATUS")
-        {
-            accepted = true;
-        } 
-        else if (it.first == "TOKEN")
-        {
-            TOKEN = it.second;
-            std::cout << TOKEN << std::endl;
-        }
+        throw std::runtime_error("Couldn't open '" + outfile_name +
+                                 " for writing.");
     }
+    outfile << "HANDSHAKE=" << name << std::endl;
+    outfile.close();
 }
-void placeFleet(){
 
-}
-
-
-void handshake(std::string name)
+void handshake_read()
 {
-    std::ofstream archivo;
-    archivo << "HANDSHAKE=" << name << std::endl;
-    archivo.close();
 }
 
-
-/*
-std::optional<std::ofstream> file_exists(std::regex r)
+/**
+ * Looks for a filename that matches the regex and returns an std::ofstream if
+ * one is found, else the option is empty.
+ */
+std::optional<std::ifstream> open_file(std::regex r)
 {
-    
-    auto path = std::filesystem::current_path() / "test";
-    std::cout << path << std::endl;
-
-    while (true)
-    {
-        std::cout << "Running again" << std::endl;
-        auto it = std::filesystem::directory_iterator(path);
-        auto count = std::distance(it, std::filesystem::directory_iterator());
-        auto path = std::filesystem::current_path() / "test";
-    std::cout << path << std::endl;
-
-    while (true)
-    {
-        std::cout << "Running again" << std::endl;
-        auto it = std::filesystem::directory_iterator(path);
-        auto count = std::distance(it, std::filesystem::directory_iterator());
-        // auto count = std::count_if(it, std::filesystem::directory_iterator(),
-        //                            [](auto v) {
-        //                                return true;
-        //                            });
-        if (count > 0)
-        {
-            for (it = std::filesystem::directory_iterator(path); it != std::filesystem::directory_iterator();)
-            {
-                std::filesystem::remove(*it);
-                it++;
-            }
-            notify();
-        }
-    }
-  
-}
-  */
-
-bool verify()
-{
-    
+    // auto path = std::filesystem::current_path() / "test";
+    return std::optional<std::ifstream>();
 }
