@@ -1,22 +1,30 @@
 #ifndef SHIP_H
 #define SHIP_H
 
+
+#include <algorithm>
+#include <fstream>
+#include <future>
+#include <iostream>
 #include <map>
-#include <vector>
+#include <memory>
+#include <numeric>
+#include <optional>
 #include <queue>
+#include <random>
+#include <regex> 
 #include <string>
 #include <string_view>
-#include <memory>
-#include <iostream>
-#include <fstream>
-#include <algorithm>
-#include <numeric>
-#include <random>
 #include <sstream>
-#include <future>
-#include <optional>
-#include <regex> 
+#include <vector>
 
+class ship{
+    public:
 
+};
+
+struct tablero{
+    
+};
 
 #endif

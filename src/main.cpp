@@ -8,6 +8,6 @@ int main()
 {
     std::ifstream archivo("texto.txt");
     auto valores = read(archivo);
-
+    parse(valores);
     
 }

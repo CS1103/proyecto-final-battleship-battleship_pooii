@@ -23,24 +23,50 @@ std::map<std::string,std::string> read(std::ifstream& file)
 
         std::getline(file, line2);
         data[line] = line2;
-
-        std::cout << data << std::endl; 
     }
 
     return data;
 }
 
-std::pair<size_t,std::pair<size_t, size_t>> handshake(std::string name)
+
+void parse(std::map<std::string,std::string> data)
+{
+    bool accepted = false;
+    std::string TOKEN;
+    for (auto& it : data)
+    {
+        if (it.first == "SCOPE")
+        {
+            //poner tamños;
+        } 
+        else if (it.first == "STATUS")
+        {
+            accepted = true;
+        } 
+        else if (it.first == "TOKEN")
+        {
+            TOKEN = it.second;
+            std::cout << TOKEN << std::endl;
+        }
+    }
+}
+void placeFleet(){
+
+}
+
+
+void handshake(std::string name)
 {
     std::ofstream archivo;
     archivo << "HANDSHAKE=" << name << std::endl;
     archivo.close();
-
-
 }
 
+
+/*
 std::optional<std::ofstream> file_exists(std::regex r)
 {
+    
     auto path = std::filesystem::current_path() / "test";
     std::cout << path << std::endl;
 
@@ -69,5 +95,13 @@ std::optional<std::ofstream> file_exists(std::regex r)
                 it++;
             }
             notify();
+        }
+    }
+  
+}
+  */
 
+bool verify()
+{
+    
 }
