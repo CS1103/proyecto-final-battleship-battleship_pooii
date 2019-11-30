@@ -45,7 +45,7 @@ int main()
     // Second: Position the fleet
     // me lo lleve a placement en funct.cpp
 
-    //  TODO: Fleet placement.
+    // TODO: Fleet placement.
 
     // Third: Start attacking
 
