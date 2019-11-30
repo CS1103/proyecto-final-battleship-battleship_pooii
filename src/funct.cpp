@@ -50,11 +50,21 @@ void handshake_read()
 }
 
 /**
- * Looks for a filename that matches the regex and returns an std::ofstream if
+ * Looks for a filename that matches the regex and returns an std::ifstream if
  * one is found, else the option is empty.
  */
 std::optional<std::ifstream> open_file(std::regex r)
 {
-    // auto path = std::filesystem::current_path() / "test";
+    std::string path = std::filesystem::current_path();
+
+    for (const auto & entry : std::filesystem::directory_iterator(path))
+    {
+        std::string a = entry.path();
+        if(regex_match(a.begin(), a.end(), r))
+        {
+           std::ifstream file(entry.path());
+           return file;
+        }
+    }
     return std::optional<std::ifstream>();
 }
