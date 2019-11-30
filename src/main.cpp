@@ -50,7 +50,7 @@ int main()
         {4, 1}
     };
 
-    //  TODO: Fleet placement.
+    // TODO: Fleet placement.
 
     // Third: Start attacking
 
