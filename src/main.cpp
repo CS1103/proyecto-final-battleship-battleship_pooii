@@ -43,12 +43,7 @@ int main()
     }
 
     // Second: Position the fleet
-    std::map<size_t, size_t> remaining_fleet = {
-        {1, 4},
-        {2, 3},
-        {3, 2},
-        {4, 1}
-    };
+    // me lo lleve a placement en funct.cpp
 
     //  TODO: Fleet placement.
 
@@ -68,6 +63,9 @@ int main()
     {
         auto n_remaining = pos_left_to_shoot.size();
     }
-
+/*
     server_out_file.reset();
+    std::ofstream archivoooo;
+    archivoooo = placement(1,"124");
+*/
 }

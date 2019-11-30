@@ -64,3 +64,101 @@ std::optional<std::ifstream> open_file(std::regex r)
     }
     return std::optional<std::ifstream>();
 }
+
+// Placement
+/*
+std::ofstream placement(int accepted, std::string TOKEN)
+{
+    std::map<char, size_t> remaining_fleet = {
+        {'A', 4},
+        {'B', 3},
+        {'S', 2},
+        {'T', 1}
+    };
+
+    std::string outfile_name = "FirstPlayer.in";
+            std::ofstream outfile(outfile_name);
+            if (!outfile)
+            {
+                throw std::runtime_error("Couldn't open '" + outfile_name +
+                                        " for writing.");
+            }
+    
+    switch(accepted)
+    {
+        case 0:
+            outfile << "TOKEN=" << TOKEN << std::endl;
+            outfile << "PLACEFLEET=B-B1-V" << std::endl;
+            outfile.close();
+            return outfile;
+
+        break;
+        case 1:
+            outfile << "TOKEN=" << TOKEN << std::endl;
+            outfile << "PLACEFLEET=B-G3-H" << std::endl;
+            outfile.close();
+            return outfile;
+
+
+        break;
+        case 2:
+            outfile << "TOKEN=" << TOKEN << std::endl;
+            outfile << "PLACEFLEET=S-D5-H" << std::endl;
+            outfile.close();
+            return outfile;
+
+        break;
+        case 3:
+            outfile << "TOKEN=" << TOKEN << std::endl;
+            outfile << "PLACEFLEET=S-E7-V" << std::endl;
+            outfile.close();
+            return outfile;
+
+        break;
+        case 4:
+            outfile << "TOKEN=" << TOKEN << std::endl;
+            outfile << "PLACEFLEET=S-H8-H" << std::endl;
+            outfile.close();
+            return outfile;
+
+        break;
+        case 5:
+            outfile << "TOKEN=" << TOKEN << std::endl;
+            outfile << "PLACEFLEET=A-C10-H" << std::endl;
+            outfile.close();
+            return outfile;
+
+        break;
+        case 6:
+            outfile << "TOKEN=" << TOKEN << std::endl;
+            outfile << "PLACEFLEET=T-D2-H" << std::endl;
+            outfile.close();
+            return outfile;
+
+        break;
+        case 7:
+            outfile << "TOKEN=" << TOKEN << std::endl;
+            outfile << "PLACEFLEET=T-H1-H" << std::endl;
+            outfile.close();
+            return outfile;
+
+        break;
+        case 8:
+            outfile << "TOKEN=" << TOKEN << std::endl;
+            outfile << "PLACEFLEET=T-H5-H" << std::endl;
+            outfile.close();
+            return outfile;
+
+        break;
+        case 9:
+            outfile << "TOKEN=" << TOKEN << std::endl;
+            outfile << "PLACEFLEET=T-H5-H" << std::endl;
+            outfile.close();
+            return outfile;
+
+        break;
+        default:
+            return outfile;
+    }    
+}
+*/
