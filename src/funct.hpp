@@ -5,6 +5,10 @@
 #include <string>
 #include <utility>
 char randchar();
+
+template<typename entero_t>
+entero_t randint(entero_t first, entero_t last);
+
 void update(std::pair<std::pair<size_t,size_t>, bool>& point);
 std::map<std::string,std::string> read(std::ifstream& file);
 std::pair<std::pair<size_t,size_t>, bool> rand_point(std::set<std::pair<std::pair<size_t,size_t>, bool>> data);

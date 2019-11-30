@@ -9,6 +9,7 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string>
+#include <random>
 #include <time.h>
 #include <utility>
 
@@ -217,7 +218,7 @@ void placement(int accepted, std::string TOKEN)
 */
 char randchar()
 {
-    int r = rand() % 2;
+    int r = randint(0,1);
     if (r == 0)
     {
         return 'V';
@@ -229,8 +230,8 @@ char randchar()
 
 void update(std::pair<std::pair<size_t,size_t>, bool>& point)
 {
-    point.first.first = rand() % 10;
-    point.first.second = rand() % 10;
+    point.first.first = randint(0,9);
+    point.first.second = randint(0,9);
     point.second = true;
 }
 
@@ -263,8 +264,8 @@ bool verify(std::set<std::pair<std::pair<size_t,size_t>, bool>> data, std::pair<
 
 std::pair<std::pair<size_t,size_t>, bool> generateP()
 {
-    int a = rand() % 10;
-    int b = rand() % 10;
+    int a = randint(0,9);
+    int b = randint(0,9);
     auto point = std::make_pair(a,b);
     return std::make_pair(point, true);
 }
@@ -318,3 +319,11 @@ void canItPlace(int len, std::set<std::pair<std::pair<size_t,size_t>, bool>>& ta
 }
 */
 
+
+template<typename entero_t>
+entero_t randint(entero_t first, entero_t last) {
+  std::random_device dev;
+  std::mt19937 eng(dev());
+  std::uniform_int_distribution<entero_t> dis(first, last);
+  return dis(eng);
+}

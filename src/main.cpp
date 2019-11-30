@@ -64,7 +64,6 @@ int main()
 */
     server_out_file.reset();
     std::ofstream archivoooo;
-    std::pair<std::pair<size_t,size_t>, bool> rand_point(std::set<std::pair<std::pair<size_t,size_t>, bool>> data);
     auto pair1 =  std::make_pair(1,1);
     auto pair2 = std::make_pair(pair1,true);
 
@@ -73,13 +72,16 @@ int main()
 
     auto pair5 =  std::make_pair(2,1);
     auto pair6 = std::make_pair(pair1,true);
-    srand((int)time(0));
 
     std::set<std::pair<std::pair<size_t,size_t>, bool>> data;
     data.insert(pair2);
     data.insert(pair4);
     data.insert(pair6);
 
+    auto it = data.begin();
     auto parthing = rand_point(data);
     std::cout << parthing << std::endl;
+    for (int i = 0; i < 10; i++){
+        std::cout << randint(0,9) << std::endl;
+    }
 }
