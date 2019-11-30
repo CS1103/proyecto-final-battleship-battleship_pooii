@@ -45,10 +45,6 @@ void handshake_write(std::string name)
     outfile.close();
 }
 
-void handshake_read()
-{
-}
-
 /**
  * Looks for a filename that matches the regex and returns an std::ofstream if
  * one is found, else the option is empty.
