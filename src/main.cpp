@@ -1,7 +1,9 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <random>
 #include <regex>
+#include <stack>
 #include <string>
 #include <utility>
 
@@ -28,7 +30,6 @@ int main()
 
         handshake_write(team_name + std::to_string(try_number));
 
-        // TODO: Here we wait til we get a response in 'Player.out' or something
         while (!server_out_file.has_value())
         {
             server_out_file = open_file(server_out_regex);
@@ -36,7 +37,7 @@ int main()
 
         auto parts = read(server_out_file.value());
 
-        if (parts["STATUS"] != "ACCEPTED")
+        if (parts.find("STATUS")->second == "REJECTED")
         {
             try_number++;
         }
@@ -54,7 +55,8 @@ int main()
 
     // Third: Start attacking
 
-    // Fill all the remaining positions to attack.
+    // Fill all the remaining positions to attack, they are in a set so that we
+    // can check rapidly wheter a specific position was already attacked.
     std::set<std::pair<size_t, size_t>> pos_left_to_shoot;
     for (size_t i = 0; i < scope.first; i++)
     {
@@ -64,10 +66,99 @@ int main()
         }
     }
 
+    std::random_device rd;
+    server_out_file.reset();
     while (!pos_left_to_shoot.empty())
     {
-        auto n_remaining = pos_left_to_shoot.size();
-    }
+        // Select a position not yet shot
+        auto it_pos_to_shoot = std::next(pos_left_to_shoot.begin(),
+                                         rd() % pos_left_to_shoot.size());
+        auto pos_to_shoot = *it_pos_to_shoot;
 
-    server_out_file.reset();
+        attack_position(pos_to_shoot.first, pos_to_shoot.second, token);
+
+        while (!server_out_file.has_value())
+        {
+            server_out_file = open_file(server_out_regex);
+        }
+        auto parts = read(server_out_file.value());
+        server_out_file.reset();
+
+        if (parts.find("STATUS")->second == "REJECTED")
+        {
+            continue;
+        }
+        pos_left_to_shoot.erase(it_pos_to_shoot);
+
+        auto message = parts.find("MESSAGE")->second;
+        if (message == "WINNER")
+        {
+            std::cout << "You won!" << std::endl;
+            return 0;
+        }
+        if (message == "GAMEOVER")
+        {
+            std::cout << "You lost!" << std::endl;
+            return 0;
+        }
+
+        if (message == "FAILED")
+        {
+            continue;
+        }
+
+        // If we get here, our shot was a hit.
+
+        std::stack<std::pair<std::pair<size_t, size_t>,
+                            std::pair<size_t, size_t>>>
+            adjacent_pos_dir;
+
+        for (auto& pd : adjacent_positions(pos_to_shoot,
+                                            scope.first, scope.second))
+        {
+            adjacent_pos_dir.push(pd);
+        }
+
+        while (!adjacent_pos_dir.empty())
+        {
+            std::pair<size_t, size_t> pos;
+            std::pair<size_t, size_t> move_direction;
+            std::tie(pos, move_direction) = adjacent_pos_dir.top();
+
+            attack_position(pos.first, pos.second, token);
+
+            auto parts = read(server_out_file.value());
+
+            if (parts.find("STATUS")->second == "REJECTED")
+            {
+                continue;
+            }
+            adjacent_pos_dir.pop();
+
+            auto message = parts.find("MESSAGE")->second;
+            if (message == "WINNER")
+            {
+                std::cout << "You won!" << std::endl;
+                return 0;
+            }
+            if (message == "GAMEOVER")
+            {
+                std::cout << "You lost!" << std::endl;
+                return 0;
+            }
+            else if (message == "FAILED")
+            {
+                continue;
+            }
+            else
+            {
+                auto new_pos = std::make_pair(pos.first + move_direction.first,
+                                              pos.second + move_direction.second);
+                if (is_inside_map(new_pos, scope))
+                {
+                    adjacent_pos_dir.emplace(new_pos, move_direction);
+                }
+            }
+        }
+    }
 }
