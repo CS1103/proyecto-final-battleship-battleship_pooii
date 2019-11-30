@@ -5,11 +5,17 @@
 #include <optional>
 #include <regex>
 #include <stdexcept>
+#include <set>
+#include <stdio.h> 
+#include <stdlib.h> 
 #include <string>
+#include <time.h>
 #include <utility>
+
 
 #include "funct.hpp"
 #include "prettyprint.hpp"
+
 
 std::map<std::string,std::string> read(std::ifstream& file)
 {
@@ -66,15 +72,61 @@ std::optional<std::ifstream> open_file(std::regex r)
 }
 
 // Placement
+//pick a point and try either vertical or horizontal (rndm)
+//if not work, try next point in diagonal
+// 
+/*                   A,B,S,T                                  X , Y         FALSE  (true si usado)                        
+void place_boat(char type_ship, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero)
+{   
+    int len;
+    switch (type_ship)
+    {
+        case 'A':
+            len = 1;
+            canItPlace(len, tablero);
+        break;
+        
+        case 'B':
+            len = 3;
+            canItPlace(len, tablero);
+        break;
+        
+        case 'S':
+            len = 2;
+            canItPlace(len, tablero);
+        break;
+        
+        case 'T':
+            len = 1;
+            canItPlace(len, tablero);
+        break;
+        default:
+            std::cout<<"no"<<std::endl;
+    }
+}
+*/
+//std::ofstream 
 /*
-std::ofstream placement(int accepted, std::string TOKEN)
+void placement(int accepted, std::string TOKEN)
 {
     std::map<char, size_t> remaining_fleet = {
-        {'A', 4},
-        {'B', 3},
-        {'S', 2},
-        {'T', 1}
+        {'A', 1},
+        {'B', 2},
+        {'S', 3},
+        {'T', 4}
     };
+
+    std::set<std::pair<std::pair<size_t,size_t>, bool>> tablero;
+    
+    std::map<char, size_t>::iterator itm;
+
+    for (auto& itmap : remaining_fleet){
+        while(itmap.second != 0){
+            place_boat(itmap.first,tablero);
+            itmap.second--;
+        }
+    }
+
 
     std::string outfile_name = "FirstPlayer.in";
             std::ofstream outfile(outfile_name);
@@ -160,5 +212,109 @@ std::ofstream placement(int accepted, std::string TOKEN)
         default:
             return outfile;
     }    
+    
 }
 */
+char randchar()
+{
+    int r = rand() % 2;
+    if (r == 0)
+    {
+        return 'V';
+    } else 
+    {
+        return 'H';
+    } 
+}
+
+void update(std::pair<std::pair<size_t,size_t>, bool>& point)
+{
+    point.first.first = rand() % 10;
+    point.first.second = rand() % 10;
+    point.second = true;
+}
+
+std::pair<std::pair<size_t,size_t>, bool> rand_point(std::set<std::pair<std::pair<size_t,size_t>, bool>> data)
+{
+    auto point_b = generateP();
+    
+    while (true)
+    {
+        if (verify(data, point_b))
+        {
+            break;
+        } else 
+        {
+            update(point_b);
+        }
+    } 
+    return point_b;
+}
+
+bool verify(std::set<std::pair<std::pair<size_t,size_t>, bool>> data, std::pair<std::pair<size_t,size_t>, bool> point)
+{
+    auto it = data.find(point);
+    if (it != data.end()){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+std::pair<std::pair<size_t,size_t>, bool> generateP()
+{
+    int a = rand() % 10;
+    int b = rand() % 10;
+    auto point = std::make_pair(a,b);
+    return std::make_pair(point, true);
+}
+/*
+void canItPlace(int len, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero)
+{
+    auto tabpoint = generateP();
+    while (true)
+    {
+        bool rangeX = tabpoint.first.second + len <= 10;
+        bool rangeY = tabpoint.first.first + len <= 10;
+        if(rangeX&&rangeY){
+            char direction = randchar();
+            if (direction == 'H')
+            {
+                bool fits = true;
+                for(int i = 0; i < len; ++i){
+                        auto ub = std::make_pair(tabpoint.first.first+i,tabpoint.first.second);
+                        auto point_ver = std::make_pair(ub,true);
+                        fits = fits && verify(tablero,point_ver);
+                }  
+                if (fits){
+                    for(int i = 0; i < len; ++i){
+                        auto ub = std::make_pair(tabpoint.first.first+i,tabpoint.first.second);
+                        auto point_ver = std::make_pair(ub,true);
+                        tablero.insert(point_ver);
+                    }
+                }      
+
+            } else if (direction == 'V') 
+            {
+                bool fits = true;
+                for(int i = 0; i < len; ++i){
+                        auto ub = std::make_pair(tabpoint.first.first,tabpoint.first.second+i);
+                        auto point_ver = std::make_pair(ub,true);
+                        fits = fits && verify(tablero,point_ver);
+                }  
+                if (fits){
+                    for(int i = 0; i < len; ++i){
+                        auto ub = std::make_pair(tabpoint.first.first,tabpoint.first.second+i);
+                        auto point_ver = std::make_pair(ub,true);
+                        tablero.insert(point_ver);
+                    }
+            }
+        } else {
+            update(tabpoint);
+        }
+        update(tabpoint);
+    }
+    } 
+}
+*/
+

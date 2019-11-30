@@ -2,7 +2,10 @@
 #include <iostream>
 #include <map>
 #include <regex>
+#include <stdio.h> 
+#include <stdlib.h> 
 #include <string>
+#include <time.h>
 #include <utility>
 
 #include "funct.hpp"
@@ -12,7 +15,7 @@ int main()
 {
     std::regex server_out_regex("^\\w+\\.out$");
     std::optional<std::ifstream> server_out_file;
-
+/*
     // First: Do the handshake.
 
     size_t token;
@@ -39,12 +42,7 @@ int main()
         if (parts["STATUS"] != "ACCEPTED")
         {
             try_number++;
-        }
-    }
-
-    // Second: Position the fleet
-    // me lo lleve a placement en funct.cpp
-
+        }1
     // TODO: Fleet placement.
 
     // Third: Start attacking
@@ -63,9 +61,25 @@ int main()
     {
         auto n_remaining = pos_left_to_shoot.size();
     }
-/*
+*/
     server_out_file.reset();
     std::ofstream archivoooo;
-    archivoooo = placement(1,"124");
-*/
+    std::pair<std::pair<size_t,size_t>, bool> rand_point(std::set<std::pair<std::pair<size_t,size_t>, bool>> data);
+    auto pair1 =  std::make_pair(1,1);
+    auto pair2 = std::make_pair(pair1,true);
+
+    auto pair3 =  std::make_pair(1,4);
+    auto pair4 = std::make_pair(pair1,true);
+
+    auto pair5 =  std::make_pair(2,1);
+    auto pair6 = std::make_pair(pair1,true);
+    srand((int)time(0));
+
+    std::set<std::pair<std::pair<size_t,size_t>, bool>> data;
+    data.insert(pair2);
+    data.insert(pair4);
+    data.insert(pair6);
+
+    auto parthing = rand_point(data);
+    std::cout << parthing << std::endl;
 }
