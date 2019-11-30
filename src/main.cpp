@@ -68,15 +68,17 @@ int main()
     auto pair2 = std::make_pair(pair1,true);
 
     auto pair3 =  std::make_pair(1,4);
-    auto pair4 = std::make_pair(pair1,true);
+    auto pair4 = std::make_pair(pair3,true);
 
     auto pair5 =  std::make_pair(2,1);
-    auto pair6 = std::make_pair(pair1,true);
+    auto pair6 = std::make_pair(pair5,true);
 
     std::set<std::pair<std::pair<size_t,size_t>, bool>> data;
     data.insert(pair2);
     data.insert(pair4);
     data.insert(pair6);
+
+    placement(3,"1234");
 
     auto it = data.begin();
     auto parthing = rand_point(data);
