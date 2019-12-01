@@ -98,6 +98,7 @@ void Player::open_infile()
     }
 }
 
+<<<<<<< HEAD:src/Player.cpp
 std::map<std::string,std::string> Player::read_parts()
 {
     std::map<std::string,std::string> ret;
@@ -106,6 +107,44 @@ std::map<std::string,std::string> Player::read_parts()
     while (!m_infile.is_open())
     {
         open_infile();
+=======
+// Placement
+// Picks a point and tries either vertical or horizontal placment (rndm)
+// If that doesn't work, try the next point in diagonal
+void place_boat(char type_ship, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero)
+{   
+    std::vector<std::pair<std::pair<size_t,size_t>,char>> points;
+    int len;
+    std::pair<std::pair<size_t, size_t>,char> par;
+    switch (type_ship)
+    {   
+        case 'A':
+            len = 4;
+            par = can_it_place(len, tablero);
+            points.push_back(par);
+            break;
+        
+        case 'B':
+            len = 3;            
+            par = can_it_place(len, tablero);
+            points.push_back(par);
+            break;
+        
+        case 'S':
+            len = 2;
+            par = can_it_place(len, tablero);
+            points.push_back(par);
+            break;
+        
+        case 'T':
+            len = 1;
+            par = can_it_place(len, tablero);
+            points.push_back(par);
+            break;
+
+        default:
+            break;
+>>>>>>> f33ed880c38673cff76f75c8e2bd4e4510333004:src/funct.cpp
     }
 
     std::string line0;
@@ -123,6 +162,7 @@ std::map<std::string,std::string> Player::read_parts()
     return ret;
 }
 
+<<<<<<< HEAD:src/Player.cpp
 /**
  * The attack stage.
  * Returns wheter the player won or lost.
@@ -154,6 +194,9 @@ bool Player::attack()
  * Checks wheter a given position is inside the maps boundaries
  */
 bool Player::is_inside_map(std::pair<size_t, size_t> pos)
+=======
+void placement(std::string TOKEN)
+>>>>>>> f33ed880c38673cff76f75c8e2bd4e4510333004:src/funct.cpp
 {
     return pos.first < m_board_size.first && pos.second < m_board_size.second;
 }
