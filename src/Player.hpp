@@ -36,8 +36,9 @@ private:
     void place_boat(char type_ship,
                     std::set<std::pair<std::pair<size_t, size_t>,
                                        bool>>& tablero);
-    std::pair<std::pair<size_t, size_t>, char>
-        can_it_place(int len,
+    
+    std::pair<std::pair<size_t, size_t>,char>
+            can_it_place(int len,
                      std::set<std::pair<std::pair<size_t, size_t>,
                                         bool>>& tablero);
     std::pair<std::pair<size_t, size_t>, bool>
@@ -60,7 +61,7 @@ private:
         adjacent_positions(std::pair<size_t, size_t> pos);
 
     bool is_inside_map(std::pair<size_t, size_t> pos);
-    void Player::place_board(std::pair<std::pair<size_t, size_t>,char> pos);
+    void Player::place_board(std::pair<std::pair<size_t, size_t>,std::pair<char,char>>);
     std::map<std::string, std::string> read_parts();
     bool place_doc();
 private:

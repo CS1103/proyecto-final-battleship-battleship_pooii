@@ -373,8 +373,9 @@ void Player::place_boat(char type_ship,
                         std::set<std::pair<std::pair<size_t, size_t>,
                                             bool>>& tablero)
 {
-    std::vector<std::pair<std::pair<size_t, size_t>, char>> points;
+    std::vector<std::pair<std::pair<size_t, size_t>,std::pair<char,char>>> points;
     int len;
+    std::pair<std::pair<size_t, size_t>,std::pair<char,char>> parf;
     std::pair<std::pair<size_t, size_t>,char> par;
 
     switch (type_ship)
@@ -382,25 +383,41 @@ void Player::place_boat(char type_ship,
         case 'A':
             len = 4;
             par = can_it_place(len, tablero);
-            points.push_back(par);
+            parf.second.second = 'A';
+            parf.first.first = par.first.first;
+            parf.first.second = par.first.second;
+            parf.second.first = par.second;
+            points.push_back(parf);
             break;
 
         case 'B':
             len = 3;
             par = can_it_place(len, tablero);
-            points.push_back(par);
+            parf.second.second = 'B';
+            parf.first.first = par.first.first;
+            parf.first.second = par.first.second;
+            parf.second.first = par.second;
+            points.push_back(parf);
             break;
 
         case 'S':
             len = 2;
             par = can_it_place(len, tablero);
-            points.push_back(par);
+            parf.second.second = 'S';
+            parf.first.first = par.first.first;
+            parf.first.second = par.first.second;
+            parf.second.first = par.second;
+            points.push_back(parf);
             break;
 
         case 'T':
             len = 1;
             par = can_it_place(len, tablero);
-            points.push_back(par);
+            parf.second.second = 'T';
+            parf.first.first = par.first.first;
+            parf.first.second = par.first.second;
+            parf.second.first = par.second;
+            points.push_back(parf);
             break;
 
         default:
@@ -410,15 +427,16 @@ void Player::place_boat(char type_ship,
 
 }
 
-void Player::place_board(std::pair<std::pair<size_t, size_t>,char> pos)
+void Player::place_board(std::pair<std::pair<size_t, size_t>,std::pair<char,char>> pos)
 {
     open_outfile();
-    auto direc = pos.second;
+    auto direc = pos.second.first;
     auto p1 = pos.first.first;
     auto p2 = pos.first.second;
+    auto type = pos.second.second;
     auto par = std::make_pair(p1,p2);
     m_outfile << "TOKEN=" << m_token << std::endl;
-    m_outfile << "PLACEFLEET=" << pos_to_format(par) << direc <<std::endl;
+    m_outfile << "PLACEFLEET=" << type << "-" << pos_to_format(par) << "-" << direc << std::endl;
 
     m_outfile.close();
 }
