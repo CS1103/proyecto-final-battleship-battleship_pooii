@@ -165,7 +165,8 @@ std::string Player::pos_to_format(std::pair<size_t, size_t> pos)
     return oss.str();
 }
 
-std::string Player::coordinate_to_letters(size_t c) {
+std::string Player::coordinate_to_letters(size_t c)
+{
     std::string ret(1, 'A' + c % 26);
     c /= 26;
 
