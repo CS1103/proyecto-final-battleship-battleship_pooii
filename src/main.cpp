@@ -12,15 +12,15 @@ int main()
     sf::RenderWindow window(sf::VideoMode(750,750),"Battleship");
     tablero game(&window,750,750,10,10);
 
-    while (_window->isOpen()){
+    while (window.isOpen()){
         sf::Event evento;
-        while( _window->pollEvent(evento)){
+        while( window.pollEvent(evento)){
             if(evento.type == sf::Event::Closed)
-                _window->close();
+                window.close();
         }
-        _window->clear();
+        window.clear();
         game.dibujo();
-        _window->display();
+        window.display();
     }
 
     std::ifstream archivo("texto.txt");
