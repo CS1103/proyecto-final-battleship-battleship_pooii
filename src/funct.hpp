@@ -20,7 +20,7 @@ void handshake_write(std::string name);
 
 std::optional<std::ifstream> open_file(std::regex r);
 
-void placement(int accepted, std::string TOKEN);
+void placement(std::string TOKEN);
 
 void place_boat(char, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero);
 std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero);
