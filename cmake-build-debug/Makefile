@@ -123,6 +123,33 @@ proyecto-final-battleship-battleship_pooii/fast:
 	$(MAKE) -f CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/build.make CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/build
 .PHONY : proyecto-final-battleship-battleship_pooii/fast
 
+src/casillas.o: src/casillas.cpp.o
+
+.PHONY : src/casillas.o
+
+# target to build an object file
+src/casillas.cpp.o:
+	$(MAKE) -f CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/build.make CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.o
+.PHONY : src/casillas.cpp.o
+
+src/casillas.i: src/casillas.cpp.i
+
+.PHONY : src/casillas.i
+
+# target to preprocess a source file
+src/casillas.cpp.i:
+	$(MAKE) -f CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/build.make CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.i
+.PHONY : src/casillas.cpp.i
+
+src/casillas.s: src/casillas.cpp.s
+
+.PHONY : src/casillas.s
+
+# target to generate assembly for a file
+src/casillas.cpp.s:
+	$(MAKE) -f CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/build.make CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.s
+.PHONY : src/casillas.cpp.s
+
 src/funct.o: src/funct.cpp.o
 
 .PHONY : src/funct.o
@@ -240,6 +267,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... proyecto-final-battleship-battleship_pooii"
+	@echo "... src/casillas.o"
+	@echo "... src/casillas.i"
+	@echo "... src/casillas.s"
 	@echo "... src/funct.o"
 	@echo "... src/funct.i"
 	@echo "... src/funct.s"

@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/casillas.cpp" "/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/cmake-build-debug/CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.o"
   "/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/funct.cpp" "/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/cmake-build-debug/CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/funct.cpp.o"
   "/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/main.cpp" "/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/cmake-build-debug/CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/main.cpp.o"
   "/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/ship.cpp" "/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/cmake-build-debug/CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/ship.cpp.o"

@@ -676,56 +676,12 @@ SFML/Config.hpp
 
 /Users/alejandrootero/DevLibraries/SFML-2.5.1-macOS-clang/include/SFML/Window/WindowStyle.hpp
 
-/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/funct.hpp
-fstream
--
-map
--
-string
--
-utility
--
-
-/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/main.cpp
+/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/casillas.h
 iostream
--
-fstream
--
-SFML/Graphics.hpp
--
-funct.hpp
-/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/funct.hpp
-prettyprint.hpp
-/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/prettyprint.hpp
-tablero.h
-/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/tablero.h
-
-/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/prettyprint.hpp
-cstddef
--
-iterator
--
-memory
--
-ostream
--
-set
--
-tuple
--
-type_traits
--
-unordered_set
--
-utility
--
-valarray
 -
 
 /Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/tablero.cpp
 SFML/Window/Event.hpp
--
-SFML/Graphics/RectangleShape.hpp
 -
 tablero.h
 /Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/tablero.h
@@ -739,4 +695,6 @@ SFML/Graphics.hpp
 -
 vector
 -
+casillas.h
+/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/casillas.h
 

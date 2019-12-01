@@ -84,6 +84,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/Player.hpp">
+			<Option target="proyecto-final-battleship-battleship_pooii"/>
+		</Unit>
+		<Unit filename="/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/casillas.cpp">
+			<Option target="proyecto-final-battleship-battleship_pooii"/>
+		</Unit>
+		<Unit filename="/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/casillas.h">
+			<Option target="proyecto-final-battleship-battleship_pooii"/>
+		</Unit>
 		<Unit filename="/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/funct.cpp">
 			<Option target="proyecto-final-battleship-battleship_pooii"/>
 		</Unit>

@@ -10,23 +10,24 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+#include "casillas.h"
 
-class tablero: public sf::Drawable, public sf::Transformable {
+using namespace std;
+
+class tablero{
     sf::RenderWindow *_window;
-    sf::VertexArray _vertices;
-    sf::Texture _tileset;
+    size_t rows;
+    size_t cols;
+    float width;
+    float height;
+    vector<vector<casilla>> casillas;
 
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const{
-        states.transform*=getTransform();
-        states.texture = &_tileset;
-        target.draw(_vertices,states);
-    }
+    void draw(float x, float y, float tam_x, float tam_y);
 
 public:
-    tablero(sf::RenderWindow *window);
+    tablero(sf::RenderWindow *window,float h, float w, size_t r, size_t c);
     void game();
     void dibujo();
-    bool load();
 };
 
 

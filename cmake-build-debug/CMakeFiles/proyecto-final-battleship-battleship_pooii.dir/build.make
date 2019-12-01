@@ -109,12 +109,26 @@ CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/tablero.cpp.s: cma
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/tablero.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/tablero.cpp -o CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/tablero.cpp.s
 
+CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.o: CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/flags.make
+CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.o: ../src/casillas.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.o -c /Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/casillas.cpp
+
+CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/casillas.cpp > CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.i
+
+CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/src/casillas.cpp -o CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.s
+
 # Object files for target proyecto-final-battleship-battleship_pooii
 proyecto__final__battleship__battleship_pooii_OBJECTS = \
 "CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/main.cpp.o" \
 "CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/funct.cpp.o" \
 "CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/ship.cpp.o" \
-"CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/tablero.cpp.o"
+"CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/tablero.cpp.o" \
+"CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.o"
 
 # External object files for target proyecto-final-battleship-battleship_pooii
 proyecto__final__battleship__battleship_pooii_EXTERNAL_OBJECTS =
@@ -123,12 +137,13 @@ proyecto-final-battleship-battleship_pooii: CMakeFiles/proyecto-final-battleship
 proyecto-final-battleship-battleship_pooii: CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/funct.cpp.o
 proyecto-final-battleship-battleship_pooii: CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/ship.cpp.o
 proyecto-final-battleship-battleship_pooii: CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/tablero.cpp.o
+proyecto-final-battleship-battleship_pooii: CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.o
 proyecto-final-battleship-battleship_pooii: CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/build.make
 proyecto-final-battleship-battleship_pooii: /Users/alejandrootero/DevLibraries/SFML-2.5.1-macOS-clang/Frameworks/./sfml-graphics.framework/Versions/2.5.1/sfml-graphics
 proyecto-final-battleship-battleship_pooii: /Users/alejandrootero/DevLibraries/SFML-2.5.1-macOS-clang/Frameworks/./sfml-window.framework/Versions/2.5.1/sfml-window
 proyecto-final-battleship-battleship_pooii: /Users/alejandrootero/DevLibraries/SFML-2.5.1-macOS-clang/Frameworks/./sfml-system.framework/Versions/2.5.1/sfml-system
 proyecto-final-battleship-battleship_pooii: CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable proyecto-final-battleship-battleship_pooii"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/alejandrootero/Programming/CLionProjects/proyecto-final-battleship-battleship_pooii/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable proyecto-final-battleship-battleship_pooii"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

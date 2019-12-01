@@ -3,7 +3,7 @@ project(proyecto-final-battleship-battleship_pooii)
 
 # Archivos del Projecto
 set(PROJECT_SOURCE
-        src/main.cpp src/funct.cpp src/ship.cpp src/tablero.cpp)
+        src/main.cpp src/funct.cpp src/ship.cpp src/tablero.cpp src/casillas.cpp src/Player.hpp)
 
 # C++ Standard
 set(CMAKE_CXX_STANDARD 17)

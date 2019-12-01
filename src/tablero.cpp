@@ -3,38 +3,47 @@
 //
 
 #include <SFML/Window/Event.hpp>
-#include <SFML/Graphics/RectangleShape.hpp>
 #include "tablero.h"
 
-tablero::tablero(sf::RenderWindow *window):_window(window) {
+tablero::tablero(sf::RenderWindow *window, float h, float w, size_t r, size_t c):_window(window), height(h), width(w), rows(r), cols(c){
     game();
+    float hc = height / rows;
+    float wc = width / cols;
+    casillas.resize(rows);
+    for (auto &row: casillas)
+        for (int i = 0; i < cols; i++) {
+            row.emplace_back(hc, wc);
+        }
 }
 
 void tablero::game() {
-    while (_window->isOpen()){
-        sf::Event evento;
-        while( _window->pollEvent(evento)){
-            if(evento.type == sf::Event::Closed)
-                _window->close();
-        }
-        _window->clear(sf::Color::Blue);
-        dibujo();
-        _window->display();
-    }
+
 }
 
 void tablero::dibujo() {
-    for(int i=0; i<10;i++){
-        for(int j=0; j<10; j++){
-
+    for (int i=0; i<rows; i++){
+        for (int j=0; j<cols; j++){
+            draw(
+                    casillas[i][j].get_width()*i,
+                    casillas[i][j].get_height()*j,
+                    casillas[i][j].get_width(),
+                    casillas[i][j].get_height()
+                    );
         }
     }
-    sf::RectangleShape rectangulo(sf::Vector2f(600,600));
-    rectangulo.setPosition(250,150);
-    rectangulo.setFillColor(sf::Color::White);
-    _window->draw(rectangulo);
+}
+
     //disparada
     //disparada, le diste
     //disparada, hundiste el barco
     //no has disparado
+
+void tablero::draw(float x, float y, float tam_x, float tam_y) {
+    sf::RectangleShape rectangle;
+    rectangle.setSize(sf::Vector2f(tam_x, tam_y));
+    rectangle.setPosition(x, y);
+    rectangle.setOutlineThickness(1);
+    rectangle.setFillColor(sf::Color::Blue);
+    rectangle.setOutlineColor(sf::Color::Yellow);
+    _window->draw(rectangle);
 }

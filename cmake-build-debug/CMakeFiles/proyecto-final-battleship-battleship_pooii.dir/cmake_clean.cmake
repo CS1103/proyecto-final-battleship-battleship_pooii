@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/funct.cpp.o"
   "CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/ship.cpp.o"
   "CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/tablero.cpp.o"
+  "CMakeFiles/proyecto-final-battleship-battleship_pooii.dir/src/casillas.cpp.o"
   "proyecto-final-battleship-battleship_pooii.pdb"
   "proyecto-final-battleship-battleship_pooii"
 )
