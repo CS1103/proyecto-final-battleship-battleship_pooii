@@ -75,8 +75,8 @@ std::optional<std::ifstream> open_file(std::regex r)
 }
 
 // Placement
-//pick a point and try either vertical or horizontal (rndm)
-//if not work, try next point in diagonal
+// Picks a point and tries either vertical or horizontal placment (rndm)
+// If that doesn't work, try the next point in diagonal
 void place_boat(char type_ship, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero)
 {   
     int len;
@@ -85,28 +85,26 @@ void place_boat(char type_ship, std::set<std::pair<std::pair<size_t,size_t>, boo
         case 'A':
             len = 4;
             canItPlace(len, tablero);
-        break;
+            break;
         
         case 'B':
             len = 3;
             canItPlace(len, tablero);
-        break;
+            break;
         
         case 'S':
             len = 2;
             canItPlace(len, tablero);
-        break;
+            break;
         
         case 'T':
             len = 1;
             canItPlace(len, tablero);
-        break;
+            break;
+
         default:
-            std::cout<<"no"<<std::endl;
     }
 }
-
-//std::ofstream 
 
 void placement(std::string TOKEN)
 {
