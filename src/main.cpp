@@ -82,8 +82,4 @@ int main()
 
     auto it = data.begin();
     auto parthing = rand_point(data);
-    std::cout << parthing << std::endl;
-    for (int i = 0; i < 10; i++){
-        std::cout << randint(0,9) << std::endl;
-    }
 }

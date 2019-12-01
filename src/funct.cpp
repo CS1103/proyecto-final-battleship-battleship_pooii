@@ -126,7 +126,6 @@ void placement(int accepted, std::string TOKEN)
     for (auto& itmap : remaining_fleet){
         while(itmap.second != 0){
             place_boat(itmap.first,tablero);
-            std::cout << itmap << std::endl;
             itmap.second--;
         }
     }
@@ -269,7 +268,7 @@ std::pair<std::pair<size_t,size_t>, bool> generateP()
     return std::make_pair(point, true);
 }
 
-void canItPlace(int len, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero)
+std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero)
 {
     auto tabpoint = generateP();
     while (true)
@@ -289,6 +288,7 @@ void canItPlace(int len, std::set<std::pair<std::pair<size_t,size_t>, bool>>& ta
                 }  
                 if (fits)
                 {
+                    std::cout << "H " << tabpoint << std::endl;
                     for(int i = 0; i < len; ++i)
                     {
                         auto ub = std::make_pair(tabpoint.first.first+i,tabpoint.first.second);
@@ -309,6 +309,7 @@ void canItPlace(int len, std::set<std::pair<std::pair<size_t,size_t>, bool>>& ta
                 }  
                 if (fits)
                 {
+                    std::cout << "V " << tabpoint << std::endl;
                     for(int i = 0; i < len; ++i)
                     {
                         auto ub = std::make_pair(tabpoint.first.first,tabpoint.first.second+i);
@@ -324,6 +325,7 @@ void canItPlace(int len, std::set<std::pair<std::pair<size_t,size_t>, bool>>& ta
             }
         update(tabpoint);
         }
+    update(tabpoint);
     } 
 }
 
