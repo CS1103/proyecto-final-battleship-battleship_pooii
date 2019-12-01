@@ -65,7 +65,7 @@ std::optional<std::ifstream> open_file(std::regex r)
     for (const auto & entry : std::filesystem::directory_iterator(path))
     {
         std::string a = entry.path();
-        if(regex_match(a.begin(), a.end(), r))
+        if (regex_match(a.begin(), a.end(), r))
         {
            std::ifstream file(entry.path());
            return file;
@@ -123,99 +123,14 @@ void placement(int accepted, std::string TOKEN)
     
     std::map<char, size_t>::iterator itm;
 
-    for (auto& itmap : remaining_fleet){
-        while(itmap.second != 0){
+    for (auto& itmap : remaining_fleet)
+    {
+        while (itmap.second != 0)
+        {
             place_boat(itmap.first,tablero);
             itmap.second--;
         }
     }
-
-/*
-    std::string outfile_name = "FirstPlayer.in";
-            std::ofstream outfile(outfile_name);
-            if (!outfile)
-            {
-                throw std::runtime_error("Couldn't open '" + outfile_name +
-                                        " for writing.");
-            }
-    
-    switch(accepted)
-    {
-        case 0:
-            outfile << "TOKEN=" << TOKEN << std::endl;
-            outfile << "PLACEFLEET=B-B1-V" << std::endl;
-            outfile.close();
-            return outfile;
-
-        break;
-        case 1:
-            outfile << "TOKEN=" << TOKEN << std::endl;
-            outfile << "PLACEFLEET=B-G3-H" << std::endl;
-            outfile.close();
-            return outfile;
-
-
-        break;
-        case 2:
-            outfile << "TOKEN=" << TOKEN << std::endl;
-            outfile << "PLACEFLEET=S-D5-H" << std::endl;
-            outfile.close();
-            return outfile;
-
-        break;
-        case 3:
-            outfile << "TOKEN=" << TOKEN << std::endl;
-            outfile << "PLACEFLEET=S-E7-V" << std::endl;
-            outfile.close();
-            return outfile;
-
-        break;
-        case 4:
-            outfile << "TOKEN=" << TOKEN << std::endl;
-            outfile << "PLACEFLEET=S-H8-H" << std::endl;
-            outfile.close();
-            return outfile;
-
-        break;
-        case 5:
-            outfile << "TOKEN=" << TOKEN << std::endl;
-            outfile << "PLACEFLEET=A-C10-H" << std::endl;
-            outfile.close();
-            return outfile;
-
-        break;
-        case 6:
-            outfile << "TOKEN=" << TOKEN << std::endl;
-            outfile << "PLACEFLEET=T-D2-H" << std::endl;
-            outfile.close();
-            return outfile;
-
-        break;
-        case 7:
-            outfile << "TOKEN=" << TOKEN << std::endl;
-            outfile << "PLACEFLEET=T-H1-H" << std::endl;
-            outfile.close();
-            return outfile;
-
-        break;
-        case 8:
-            outfile << "TOKEN=" << TOKEN << std::endl;
-            outfile << "PLACEFLEET=T-H5-H" << std::endl;
-            outfile.close();
-            return outfile;
-
-        break;
-        case 9:
-            outfile << "TOKEN=" << TOKEN << std::endl;
-            outfile << "PLACEFLEET=T-H5-H" << std::endl;
-            outfile.close();
-            return outfile;
-
-        break;
-        default:
-            return outfile;
-    }    
-*/    
 }
 
 char randchar()
@@ -275,12 +190,13 @@ std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_
     {
         bool rangeX = tabpoint.first.second + len <= 10;
         bool rangeY = tabpoint.first.first + len <= 10;
-        if(rangeX&&rangeY){
+        if (rangeX&&rangeY)
+        {
             char direction = randchar();
             if (direction == 'H')
             {
                 bool fits = true;
-                for(int i = 0; i < len; ++i)
+                for (int i = 0; i < len; ++i)
                 {
                         auto ub = std::make_pair(tabpoint.first.first+i,tabpoint.first.second);
                         auto point_ver = std::make_pair(ub,true);
@@ -289,7 +205,7 @@ std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_
                 if (fits)
                 {
                     std::cout << "H " << tabpoint << std::endl;
-                    for(int i = 0; i < len; ++i)
+                    for (int i = 0; i < len; ++i)
                     {
                         auto ub = std::make_pair(tabpoint.first.first+i,tabpoint.first.second);
                         auto point_ver = std::make_pair(ub,true);
@@ -301,7 +217,7 @@ std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_
             } else if (direction == 'V') 
             {
                 bool fits = true;
-                for(int i = 0; i < len; ++i)
+                for (int i = 0; i < len; ++i)
                 {
                         auto ub = std::make_pair(tabpoint.first.first,tabpoint.first.second+i);
                         auto point_ver = std::make_pair(ub,true);
@@ -310,7 +226,7 @@ std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_
                 if (fits)
                 {
                     std::cout << "V " << tabpoint << std::endl;
-                    for(int i = 0; i < len; ++i)
+                    for (int i = 0; i < len; ++i)
                     {
                         auto ub = std::make_pair(tabpoint.first.first,tabpoint.first.second+i);
                         auto point_ver = std::make_pair(ub,true);
@@ -329,12 +245,11 @@ std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_
     } 
 }
 
-
-
 template<typename entero_t>
-entero_t randint(entero_t first, entero_t last) {
-  std::random_device dev;
-  std::mt19937 eng(dev());
-  std::uniform_int_distribution<entero_t> dis(first, last);
-  return dis(eng);
+entero_t randint(entero_t first, entero_t last)
+{
+    std::random_device dev;
+    std::mt19937 eng(dev());
+    std::uniform_int_distribution<entero_t> dis(first, last);
+    return dis(eng);
 }
