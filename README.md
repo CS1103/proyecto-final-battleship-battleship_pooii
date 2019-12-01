@@ -8,7 +8,7 @@ En este proyecto, se ha pedido realizar una simulación del juego en un programa
 
 A diferencia de un juego clásico de Battleship, lo que busca este código es llevar a cabo una counicación eficiente con el servidor que conecta a los jugadores. Este recibe una serie de opciones las cuales sirven para saber el estado actual del juego. Se busca que cada equipo tenga un turno para realizar una jugada.
 
-En caso desee ver más a fondo esta implementación, por favor referirse al video final o al código mismo.
+En caso desee ver más a fondo esta implementación, por favor referirse al video final o al código mismo. La implementación final se encuentra en el branch "merge_parts"
 
 ## MIEMBROS
 
