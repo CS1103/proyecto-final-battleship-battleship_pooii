@@ -66,7 +66,7 @@ std::optional<std::ifstream> open_file(std::regex r)
     for (const auto & entry : std::filesystem::directory_iterator(path))
     {
         std::string a = entry.path();
-        if(regex_match(a.begin(), a.end(), r))
+        if (regex_match(a.begin(), a.end(), r))
         {
            std::ifstream file(entry.path());
            return file;
@@ -131,12 +131,14 @@ void placement(std::string TOKEN)
     
     std::map<char, size_t>::iterator itm;
 
-    for (auto& itmap : remaining_fleet){
-        while(itmap.second != 0){
-            place_boat(itmap.first,tablero);    
+    for (auto& itmap : remaining_fleet)
+    {
+        while (itmap.second != 0)
+        {
+            place_boat(itmap.first, tablero);
             itmap.second--;
         }
-    }  
+    }
 }
 
 char randchar()
@@ -197,13 +199,17 @@ std::pair<std::pair<size_t,size_t>,char> can_it_place(int len, std::set<std::pai
     {
         bool rangeX = tabpoint.first.second + len <= 10;
         bool rangeY = tabpoint.first.first + len <= 10;
+<<<<<<< HEAD
         if(rangeX&&rangeY)
+=======
+        if (rangeX&&rangeY)
+>>>>>>> efc939fed93a919780b1139f0191e00915fef9ab
         {
             char direction = randchar();
             if (direction == 'H')
             {
                 bool fits = true;
-                for(int i = 0; i < len; ++i)
+                for (int i = 0; i < len; ++i)
                 {
                         auto ub = std::make_pair(tabpoint.first.first+i,tabpoint.first.second);
                         auto point_ver = std::make_pair(ub,true);
@@ -211,9 +217,14 @@ std::pair<std::pair<size_t,size_t>,char> can_it_place(int len, std::set<std::pai
                 }  
                 if (fits)
                 {
+<<<<<<< HEAD
                     direc = 'H';
                     //std::cout << "H " << tabpoint << std::endl;
                     for(int i = 0; i < len; ++i)
+=======
+                    std::cout << "H " << tabpoint << std::endl;
+                    for (int i = 0; i < len; ++i)
+>>>>>>> efc939fed93a919780b1139f0191e00915fef9ab
                     {
                         auto ub = std::make_pair(tabpoint.first.first+i+1,tabpoint.first.second);
                         auto point_ver = std::make_pair(ub,true);
@@ -237,7 +248,7 @@ std::pair<std::pair<size_t,size_t>,char> can_it_place(int len, std::set<std::pai
             } else if (direction == 'V') 
             {
                 bool fits = true;
-                for(int i = 0; i < len; ++i)
+                for (int i = 0; i < len; ++i)
                 {
                         auto ub = std::make_pair(tabpoint.first.first,tabpoint.first.second+i);
                         auto point_ver = std::make_pair(ub,true);
@@ -245,9 +256,14 @@ std::pair<std::pair<size_t,size_t>,char> can_it_place(int len, std::set<std::pai
                 }  
                 if (fits)
                 {
+<<<<<<< HEAD
                     direc = 'V';
                     //std::cout << "V " << tabpoint << std::endl;
                     for(int i = 0; i < len; ++i)
+=======
+                    std::cout << "V " << tabpoint << std::endl;
+                    for (int i = 0; i < len; ++i)
+>>>>>>> efc939fed93a919780b1139f0191e00915fef9ab
                     {
                         auto ub = std::make_pair(tabpoint.first.first,tabpoint.first.second+i);
                         auto point_ver = std::make_pair(ub,true);
@@ -285,13 +301,11 @@ std::pair<std::pair<size_t,size_t>,char> can_it_place(int len, std::set<std::pai
     return std::make_pair(final_pair,direc);
 }
 
-
-
 template<typename entero_t>
-entero_t randint(entero_t first, entero_t last) 
+entero_t randint(entero_t first, entero_t last)
 {
-  std::random_device dev;
-  std::mt19937 eng(dev());
-  std::uniform_int_distribution<entero_t> dis(first, last);
-  return dis(eng);
+    std::random_device dev;
+    std::mt19937 eng(dev());
+    std::uniform_int_distribution<entero_t> dis(first, last);
+    return dis(eng);
 }
