@@ -40,6 +40,12 @@ private:
         can_it_place(int len,
                      std::set<std::pair<std::pair<size_t, size_t>,
                                         bool>>& tablero);
+    std::pair<std::pair<size_t, size_t>, bool>
+        rand_point(std::set<std::pair<std::pair<size_t, size_t>, bool>> data);
+    std::pair<std::pair<size_t,size_t>, bool> generate_point();
+    void update(std::pair<std::pair<size_t, size_t>, bool>& point);
+    bool verify(std::set<std::pair<std::pair<size_t, size_t>, bool>> data,
+                std::pair<std::pair<size_t, size_t>, bool> point);
 
     bool attack();
     void attack_position(std::pair<size_t, size_t>);
