@@ -15,6 +15,13 @@ En caso desee ver más a fondo esta implementación, por favor referirse al vide
 MIEMBROS
 #
 
+|Integrantes|Código|URI|
+|-----------|------|---|
+|Claudia Noche|102710320|cnoche
+|Alvaro Guerrero||AlvaroGuerreroJ
+|Alejandro Otero||Oteranga
+
 #
-CONCLUSIONES Y RECOMENDACIONES
+CONCLUSIONES
 #
+En conclusión, este proyecto pone a prueba las habilidades aprendidas por los alumnos durante el ciclo. Se puede ver como se han utilizado distintas estructuras de datos, las cuales presentaron un reto para los alumnos. Implementaciones como esta sirven para entender, de manera simple, las conecciones con servidoes en situaciones de la vida real. 
