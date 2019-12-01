@@ -364,11 +364,11 @@ void Player::place_fleet()
             place_boat(itmap.first, tablero);
             itmap.second--;
         }
+
     }
 }
 
 // Picks a point and tries either vertical or horizontal placment (rndm)
-// If that doesn't work, tries the next point in diagonal
 void Player::place_boat(char type_ship,
                         std::set<std::pair<std::pair<size_t, size_t>,
                                             bool>>& tablero)
@@ -406,6 +406,40 @@ void Player::place_boat(char type_ship,
         default:
             break;
     }
+
+
+}
+
+void Player::place_board(std::pair<std::pair<size_t, size_t>,char> pos)
+{
+    open_outfile();
+    auto direc = pos.second;
+    auto p1 = pos.first.first;
+    auto p2 = pos.first.second;
+    auto par = std::make_pair(p1,p2);
+    m_outfile << "TOKEN=" << m_token << std::endl;
+    m_outfile << "PLACEFLEET=" << pos_to_format(par) << direc <<std::endl;
+
+    m_outfile.close();
+}
+
+
+
+bool place_doc()
+{
+    auto parts = read_parts();
+    if (parts.find("STATUS")->second == "REJECTED"){
+        //stop
+    }
+    auto message = parts.find("MESSAGE")->second;
+    if (message == "CONTINUE" || message == "COMPLETE")
+        {
+            return true;
+        }
+        else if (message =="BUSY" || message =="OUTSIDE")
+        {
+            return false;
+        }
 }
 
 std::pair<std::pair<size_t, size_t>, char>

@@ -60,10 +60,9 @@ private:
         adjacent_positions(std::pair<size_t, size_t> pos);
 
     bool is_inside_map(std::pair<size_t, size_t> pos);
-
-
+    void Player::place_board(std::pair<std::pair<size_t, size_t>,char> pos);
     std::map<std::string, std::string> read_parts();
-
+    bool place_doc();
 private:
     static std::string coordinate_to_letters(size_t c);
     static std::string pos_to_format(std::pair<size_t, size_t> pos);
