@@ -16,7 +16,7 @@ En caso desee ver más a fondo esta implementación, por favor referirse al vide
 |:--------------|:--------|:--------------|
 |Claudia Noche  |102710320|cnoche         |
 |Alvaro Guerrero|         |AlvaroGuerreroJ|
-|Alejandro Otero|         |Oteranga       |
+|Alejandro Otero|201810548|Oteranga       |
 
 ## CONCLUSIONES
 
