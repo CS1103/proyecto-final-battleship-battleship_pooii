@@ -199,11 +199,7 @@ std::pair<std::pair<size_t,size_t>,char> can_it_place(int len, std::set<std::pai
     {
         bool rangeX = tabpoint.first.second + len <= 10;
         bool rangeY = tabpoint.first.first + len <= 10;
-<<<<<<< HEAD
-        if(rangeX&&rangeY)
-=======
         if (rangeX&&rangeY)
->>>>>>> efc939fed93a919780b1139f0191e00915fef9ab
         {
             char direction = randchar();
             if (direction == 'H')
@@ -217,14 +213,8 @@ std::pair<std::pair<size_t,size_t>,char> can_it_place(int len, std::set<std::pai
                 }  
                 if (fits)
                 {
-<<<<<<< HEAD
-                    direc = 'H';
-                    //std::cout << "H " << tabpoint << std::endl;
-                    for(int i = 0; i < len; ++i)
-=======
                     std::cout << "H " << tabpoint << std::endl;
                     for (int i = 0; i < len; ++i)
->>>>>>> efc939fed93a919780b1139f0191e00915fef9ab
                     {
                         auto ub = std::make_pair(tabpoint.first.first+i+1,tabpoint.first.second);
                         auto point_ver = std::make_pair(ub,true);
@@ -256,14 +246,8 @@ std::pair<std::pair<size_t,size_t>,char> can_it_place(int len, std::set<std::pai
                 }  
                 if (fits)
                 {
-<<<<<<< HEAD
-                    direc = 'V';
-                    //std::cout << "V " << tabpoint << std::endl;
-                    for(int i = 0; i < len; ++i)
-=======
                     std::cout << "V " << tabpoint << std::endl;
                     for (int i = 0; i < len; ++i)
->>>>>>> efc939fed93a919780b1139f0191e00915fef9ab
                     {
                         auto ub = std::make_pair(tabpoint.first.first,tabpoint.first.second+i);
                         auto point_ver = std::make_pair(ub,true);
