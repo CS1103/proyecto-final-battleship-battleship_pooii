@@ -444,7 +444,7 @@ void Player::place_board(std::pair<std::pair<size_t, size_t>,
 
 
 
-bool place_doc()
+bool Player::place_doc()
 {
     auto parts = read_parts();
     if (parts.find("STATUS")->second == "REJECTED"){
