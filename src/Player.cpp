@@ -427,16 +427,17 @@ void Player::place_boat(char type_ship,
 
 }
 
-void Player::place_board(std::pair<std::pair<size_t, size_t>,std::pair<char,char>> pos)
+void Player::place_board(std::pair<std::pair<size_t, size_t>,
+                                   std::pair<char, char>> pos)
 {
     open_outfile();
     auto direc = pos.second.first;
-    auto p1 = pos.first.first;
-    auto p2 = pos.first.second;
     auto type = pos.second.second;
-    auto par = std::make_pair(p1,p2);
     m_outfile << "TOKEN=" << m_token << std::endl;
-    m_outfile << "PLACEFLEET=" << type << "-" << pos_to_format(par) << "-" << direc << std::endl;
+    m_outfile << "PLACEFLEET="
+              << type << "-"
+              << pos_to_format(pos.first) << "-"
+              << direc << std::endl;
 
     m_outfile.close();
 }
