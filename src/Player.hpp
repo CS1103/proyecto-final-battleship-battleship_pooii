@@ -32,6 +32,15 @@ private:
 
     void handshake();
 
+    void place_fleet();
+    void place_boat(char type_ship,
+                    std::set<std::pair<std::pair<size_t, size_t>,
+                                       bool>>& tablero);
+    std::pair<std::pair<size_t, size_t>, char>
+        can_it_place(int len,
+                     std::set<std::pair<std::pair<size_t, size_t>,
+                                        bool>>& tablero);
+
     bool attack();
     void attack_position(std::pair<size_t, size_t>);
     std::variant<bool, std::pair<size_t, size_t>>
@@ -46,10 +55,17 @@ private:
 
     bool is_inside_map(std::pair<size_t, size_t> pos);
 
-    std::string pos_to_format(std::pair<size_t, size_t> pos);
-    std::string coordinate_to_letters(size_t c);
 
-    std::map<std::string,std::string> read_parts();
+    std::map<std::string, std::string> read_parts();
+
+private:
+    static std::string coordinate_to_letters(size_t c);
+    static std::string pos_to_format(std::pair<size_t, size_t> pos);
+
+    template<class integer_type>
+    static integer_type randint(integer_type first, integer_type last);
+
+    static char randchar();
 };
 
 #endif
