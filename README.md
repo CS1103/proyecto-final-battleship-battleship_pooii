@@ -3,7 +3,7 @@
 #
 ESTRUCTURA DEL JUEGO
 #
-Generación de archivos
+#Generación de archivos#
   Son los archivos .in que se envían al servidor y que este lee para responderle al programa. En estos archivos se envían el nombre del equipo, lugar a poner el barco, entre otros.
   
 Lectura de archivos
