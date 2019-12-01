@@ -452,13 +452,13 @@ bool Player::place_doc()
     }
     auto message = parts.find("MESSAGE")->second;
     if (message == "CONTINUE" || message == "COMPLETE")
-        {
-            return true;
-        }
-        else if (message =="BUSY" || message =="OUTSIDE")
-        {
-            return false;
-        }
+    {
+        return true;
+    }
+    else if (message =="BUSY" || message =="OUTSIDE")
+    {
+        return false;
+    }
 }
 
 std::pair<std::pair<size_t, size_t>, char>
