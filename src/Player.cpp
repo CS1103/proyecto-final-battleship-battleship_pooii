@@ -514,3 +514,45 @@ std::pair<std::pair<size_t, size_t>, char>
     auto final_pair = std::make_pair(par1, par2);
     return std::make_pair(final_pair, direc);
 }
+
+std::pair<std::pair<size_t, size_t>, bool>
+Player::rand_point(std::set<std::pair<std::pair<size_t, size_t>,
+                                      bool>> data)
+{
+    auto point_b = generate_point();
+
+    while (true)
+    {
+        if (verify(data, point_b))
+        {
+            break;
+        }
+        else
+        {
+            update(point_b);
+        }
+    }
+
+    return point_b;
+}
+
+std::pair<std::pair<size_t,size_t>, bool> Player::generate_point()
+{
+    int a = randint(0, 9);
+    int b = randint(0, 9);
+    auto point = std::make_pair(a, b);
+    return std::make_pair(point, true);
+}
+
+void Player::update(std::pair<std::pair<size_t, size_t>, bool>& point)
+{
+    point.first.first = randint(0, 9);
+    point.first.second = randint(0, 9);
+    point.second = true;
+}
+
+bool Player::verify(std::set<std::pair<std::pair<size_t, size_t>, bool>> data,
+                    std::pair<std::pair<size_t, size_t>, bool> point)
+{
+    return data.count(point) == 0;
+}
