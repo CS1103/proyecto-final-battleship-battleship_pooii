@@ -24,7 +24,7 @@ private:
 
 public:
     Player(std::string team_name);
-    void play();
+    bool play();
 
 private:
     void open_outfile();

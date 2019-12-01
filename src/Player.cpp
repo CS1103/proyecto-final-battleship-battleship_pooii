@@ -16,11 +16,15 @@ Player::Player(std::string team_name)
 {
 }
 
-void Player::play()
+/**
+ * Starts playing.
+ * Returns a boolean indicating wheter the game was won.
+ */
+bool Player::play()
 {
     handshake();
     // place_fleet();
-    attack();
+    return attack();
 }
 
 /**
