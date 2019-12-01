@@ -77,15 +77,13 @@ std::optional<std::ifstream> open_file(std::regex r)
 // Placement
 //pick a point and try either vertical or horizontal (rndm)
 //if not work, try next point in diagonal
-//                   A,B,S,T                                  X , Y         FALSE  (true si usado)                        
-
 void place_boat(char type_ship, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero)
 {   
     int len;
     switch (type_ship)
     {
         case 'A':
-            len = 1;
+            len = 4;
             canItPlace(len, tablero);
         break;
         
@@ -110,7 +108,7 @@ void place_boat(char type_ship, std::set<std::pair<std::pair<size_t,size_t>, boo
 
 //std::ofstream 
 
-void placement(int accepted, std::string TOKEN)
+void placement(std::string TOKEN)
 {
     std::map<char, size_t> remaining_fleet = {
         {'A', 1},
@@ -127,7 +125,7 @@ void placement(int accepted, std::string TOKEN)
     {
         while (itmap.second != 0)
         {
-            place_boat(itmap.first,tablero);
+            place_boat(itmap.first, tablero);
             itmap.second--;
         }
     }
@@ -207,9 +205,21 @@ std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_
                     std::cout << "H " << tabpoint << std::endl;
                     for (int i = 0; i < len; ++i)
                     {
-                        auto ub = std::make_pair(tabpoint.first.first+i,tabpoint.first.second);
+                        auto ub = std::make_pair(tabpoint.first.first+i+1,tabpoint.first.second);
                         auto point_ver = std::make_pair(ub,true);
                         tablero.insert(point_ver);
+                        if (tabpoint.first.second+1 <= 10)
+                        {
+                            auto ub = std::make_pair(tabpoint.first.first+i,tabpoint.first.second+1);
+                            auto point_ver = std::make_pair(ub,true);
+                            tablero.insert(point_ver);
+                        }
+                        if (tabpoint.first.second-1 <= 10)
+                        {
+                            auto ub = std::make_pair(tabpoint.first.first+i,tabpoint.first.second-1);
+                            auto point_ver = std::make_pair(ub,true);
+                            tablero.insert(point_ver);
+                        }
                     }
                     break;
                 }      
@@ -231,6 +241,20 @@ std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_
                         auto ub = std::make_pair(tabpoint.first.first,tabpoint.first.second+i);
                         auto point_ver = std::make_pair(ub,true);
                         tablero.insert(point_ver);
+
+                        if (tabpoint.first.first+1 <= 10)
+                        {
+                            auto ub = std::make_pair(tabpoint.first.first+1,tabpoint.first.second+i+1);
+                            auto point_ver = std::make_pair(ub,true);
+                            tablero.insert(point_ver);
+
+                        }
+                        if (tabpoint.first.first-1 <= 10)
+                        {
+                            auto ub = std::make_pair(tabpoint.first.first-1,tabpoint.first.second+i+1);
+                            auto point_ver = std::make_pair(ub,true);
+                            tablero.insert(point_ver);
+                        }
                     }
                 break;
                 }

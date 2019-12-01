@@ -78,7 +78,7 @@ int main()
     data.insert(pair4);
     data.insert(pair6);
 
-    placement(3,"1234");
+    placement("1234");
 
     auto it = data.begin();
     auto parthing = rand_point(data);
