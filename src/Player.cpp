@@ -423,7 +423,13 @@ void Player::place_boat(char type_ship,
         default:
             break;
     }
-
+    for (auto it : points)
+    {
+        if (place_doc)
+        {
+            place_board(it);
+        }
+    }
 
 }
 
