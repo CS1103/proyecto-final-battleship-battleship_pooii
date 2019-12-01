@@ -3,7 +3,7 @@
 #
 ESTRUCTURA DEL JUEGO
 #
-#Generación de archivos#
+Generación de archivos
   Son los archivos .in que se envían al servidor y que este lee para responderle al programa. En estos archivos se envían el nombre del equipo, lugar a poner el barco, entre otros.
   
 Lectura de archivos
@@ -17,7 +17,7 @@ Attack
 #
 ¿CÓMO LLEGAMOS A IMPLEMENTAR ESOS RESULTADOS?
 #
-
+  En primer lugar, nos juntamos a trabajar para compartir ideas y ver cuál es la mejor o más fácil de implementar. Por otra parte, a través de un grupo de whatsapp lográbamos coordinar si es que faltaba algo o si es que a alguien le falto algo, de esa manera los tres estábamos al tanto de todo lo que sucedía. 
 #
 CONCLUSIONES Y RECOMENDACIONES
 #
