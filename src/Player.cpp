@@ -140,8 +140,21 @@ bool Player::attack()
         std::variant<bool, std::pair<size_t, size_t>>
             pos_hunted = hunt(pos_left_to_shoot);
 
-        std::optional<bool> target_result = target(pos_hunted, pos_left_to_shoot);
+        if (std::holds_alternative<bool>(pos_hunted))
+        {
+            return std::get<bool>(pos_hunted);
+        }
+
+        std::optional<bool> target_result =
+            target(pos_left_to_shoot, std::get<std::pair<size_t, size_t>>(pos_hunted));
+        if (target_result.has_value())
+        {
+            return target_result.value();
+        }
     }
+
+    throw std::runtime_error("Shot all positions yet we didn't win or lose. "
+                             "Something went wrong.");
 }
 
 /**
@@ -221,6 +234,9 @@ std::variant<bool, std::pair<size_t, size_t>>
             return pos_to_shoot;
         }
     }
+
+    throw std::runtime_error("Shot all remaining positions and didn't hit any "
+                             "ships, yet we haven't won or lost.");
 }
 
 std::optional<bool>
@@ -253,6 +269,7 @@ std::optional<bool>
         }
 
         adjacent_pos_dir.pop();
+        left_to_shoot.erase(pos);
 
         auto message = parts.find("MESSAGE")->second;
         if (message == "WINNER")
