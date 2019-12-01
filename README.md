@@ -4,24 +4,20 @@ Battleship es un juego de mesa reconocido y jugado al rededor de todo el mundo. 
 
 En este proyecto, se ha pedido realizar una simulación del juego en un programa de C++, utilizando todo lo aprendido durante el ciclo para ejecutarlo.
 
-#
-ESTRUCTURA DEL JUEGO
-#
+## ESTRUCTURA DEL JUEGO
+
 A diferencia de un juego clásico de Battleship, lo que busca este código es llevar a cabo una counicación eficiente con el servidor que conecta a los jugadores. Este recibe una serie de opciones las cuales sirven para saber el estado actual del juego. Se busca que cada equipo tenga un turno para realizar una jugada.
 
 En caso desee ver más a fondo esta implementación, por favor referirse al video final o al código mismo.
 
-#
-MIEMBROS
-#
+## MIEMBROS
 
-|Integrantes|Código|URI|
-|-----------|------|---|
-|Claudia Noche|102710320|cnoche
-|Alvaro Guerrero||AlvaroGuerreroJ
-|Alejandro Otero||Oteranga
+|  Integrantes  |  Código |      URI      |
+|:--------------|:--------|:--------------|
+|Claudia Noche  |102710320|cnoche         |
+|Alvaro Guerrero|         |AlvaroGuerreroJ|
+|Alejandro Otero|         |Oteranga       |
 
-#
-CONCLUSIONES
-#
+## CONCLUSIONES
+
 En conclusión, este proyecto pone a prueba las habilidades aprendidas por los alumnos durante el ciclo. Se puede ver como se han utilizado distintas estructuras de datos, las cuales presentaron un reto para los alumnos. Implementaciones como esta sirven para entender, de manera simple, las conecciones con servidoes en situaciones de la vida real. 
