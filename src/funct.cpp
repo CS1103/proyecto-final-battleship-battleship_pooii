@@ -12,6 +12,7 @@
 #include <random>
 #include <time.h>
 #include <utility>
+#include <vector>
 
 
 #include "funct.hpp"
@@ -79,30 +80,40 @@ std::optional<std::ifstream> open_file(std::regex r)
 // If that doesn't work, try the next point in diagonal
 void place_boat(char type_ship, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero)
 {   
+    std::vector<std::pair<std::pair<size_t,size_t>,char>> points;
     int len;
+    std::pair<std::pair<size_t, size_t>,char> par;
     switch (type_ship)
-    {
+    {   
         case 'A':
             len = 4;
-            canItPlace(len, tablero);
+            par = can_it_place(len, tablero);
+            points.push_back(par);
             break;
         
         case 'B':
-            len = 3;
-            canItPlace(len, tablero);
+            len = 3;            
+            par = can_it_place(len, tablero);
+            points.push_back(par);
             break;
         
         case 'S':
             len = 2;
-            canItPlace(len, tablero);
+            par = can_it_place(len, tablero);
+            points.push_back(par);
             break;
         
         case 'T':
             len = 1;
-            canItPlace(len, tablero);
+            par = can_it_place(len, tablero);
+            points.push_back(par);
             break;
 
         default:
+            break;
+    }
+    for (auto it : points){
+        std::cout << it << std::endl;
     }
 }
 
@@ -150,7 +161,7 @@ void update(std::pair<std::pair<size_t,size_t>, bool>& point)
 
 std::pair<std::pair<size_t,size_t>, bool> rand_point(std::set<std::pair<std::pair<size_t,size_t>, bool>> data)
 {
-    auto point_b = generateP();
+    auto point_b = generate_point();
     
     while (true)
     {
@@ -171,7 +182,7 @@ bool verify(std::set<std::pair<std::pair<size_t,size_t>, bool>> data,
     return data.count(point) == 0;
 }
 
-std::pair<std::pair<size_t,size_t>, bool> generateP()
+std::pair<std::pair<size_t,size_t>, bool> generate_point()
 {
     int a = randint(0,9);
     int b = randint(0,9);
@@ -179,9 +190,10 @@ std::pair<std::pair<size_t,size_t>, bool> generateP()
     return std::make_pair(point, true);
 }
 
-std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero)
+std::pair<std::pair<size_t,size_t>,char> can_it_place(int len, std::set<std::pair<std::pair<size_t,size_t>, bool>>& tablero)
 {
-    auto tabpoint = generateP();
+    char direc;
+    auto tabpoint = generate_point();
     while (true)
     {
         bool rangeX = tabpoint.first.second + len <= 10;
@@ -264,7 +276,12 @@ std::pair<size_t, size_t> canItPlace(int len, std::set<std::pair<std::pair<size_
         update(tabpoint);
         }
     update(tabpoint);
-    } 
+    }
+    
+    auto par1 = tabpoint.first.first;
+    auto par2 = tabpoint.first.second;
+    auto final_pair = std::make_pair(par1,par2);
+    return std::make_pair(final_pair,direc);
 }
 
 template<typename entero_t>
